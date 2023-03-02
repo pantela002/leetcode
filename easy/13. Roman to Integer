@@ -1,0 +1,62 @@
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        zbir=0
+        c=0
+        while(c<len(s)):
+            holder=0
+            if c==(len(s)-1):
+                if s[c]=='I':zbir+=1
+                if s[c]=='V':zbir+=5
+                if s[c]=='X':zbir+=10
+                if s[c]=='L':zbir+=50
+                if s[c]=='C':zbir+=100
+                if s[c]=='D':zbir+=500
+                if s[c]=='M':zbir+=1000
+                break;
+            if s[c]=='I':
+                if s[c+1]=='V':
+                    zbir+=4
+                    holder=1
+                elif s[c+1]=='X':
+                    zbir+=9
+                    holder=1                    
+                else:
+                    zbir+=1
+            if s[c]=='V':
+                zbir+=5
+            if s[c]=='X':
+                if s[c+1]=='L':
+                    zbir+=40
+                    holder=1
+                elif s[c+1]=='C':
+                    zbir+=90
+                    holder=1
+                else:
+                    zbir+=10
+            if s[c]=='L':
+                zbir+=50
+            if s[c]=='C':
+                if s[c+1]=='D':
+                    zbir+=400
+                    holder=1
+                elif s[c+1]=='M':
+                    zbir+=900
+                    holder=1
+                else:
+                    zbir+=100
+            if s[c]=='D':
+                zbir+=500
+            if s[c]=='M':
+                zbir+=1000
+
+            c=c+1+holder
+        return zbir
+                    
+            
+                
+            
+        

@@ -1,0 +1,22 @@
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        runningSum = [nums[0]]
+        for i in range (1,len(nums)):
+            runningSum.append(runningSum[i-1]+nums[i])
+            
+        return runningSum
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        for(int i=1;i<nums.size();i++)
+        {
+            nums[i]+=nums[i-1];
+        }
+        return nums;
+    }
+};

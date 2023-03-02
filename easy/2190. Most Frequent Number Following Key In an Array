@@ -1,0 +1,42 @@
+class Solution(object):
+    def mostFrequent(self, nums, key):
+        """
+        :type nums: List[int]
+        :type key: int
+        :rtype: int
+        """
+        enum={}
+        for i in range (0,len(nums)-1):
+            if nums[i]==key:
+                try:
+                    enum[nums[i+1]]+=1
+                except:
+                    enum[nums[i+1]]=1
+        
+        maxx=0
+        zapamti=0
+        for i, key in enumerate(enum):
+            if enum[key]>maxx:
+                maxx=enum[key]
+                zapamti=key
+        return zapamti
+        
+		
+map<int,int>m;
+        
+        for(int i=0; i<nums.size()-1; i++)
+        {
+            if(nums[i] == key)
+                m[nums[i+1]]++;
+        }
+        
+        int max=0, res=1;
+        for(auto i: m)
+        {
+            if(i.second > max)
+            {
+                max = i.second;
+                res = i.first;
+            }
+        }
+        return res;

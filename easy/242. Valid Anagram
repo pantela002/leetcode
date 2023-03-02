@@ -1,0 +1,43 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t) :
+            return False
+        A={}
+        for letter in t:
+            try:
+                A[letter]+=1
+            except:
+                A[letter]=1
+        for letter in s:
+            try:
+                A[letter]-=1
+                if A[letter]<0:
+                    return False
+            except:
+                return False
+        return True
+		
+		
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        if(s.length()!=t.length()){
+            return false;
+        }
+        else{
+            for(int i=0;i<s.length();i++)
+            {
+                if(s[i]!=t[i]){return false;}
+            }
+        }
+        return true;
+    }
+};
+

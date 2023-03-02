@@ -1,0 +1,15 @@
+class Solution(object):
+    def prefixCount(self, words, pref):
+        """
+        :type words: List[str]
+        :type pref: str
+        :rtype: int
+        """
+        uk=0
+
+        for w in words:
+            if pref==w[0:len(pref):1] :
+                uk+=1
+        return uk
+                
+        

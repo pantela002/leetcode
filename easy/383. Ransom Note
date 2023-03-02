@@ -1,0 +1,61 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        A = {}
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        can=True
+        for letter in magazine:
+            try:
+                A[letter]+=1
+            except:
+                A[letter]=1
+        for letter in ransomNote:
+            try:
+                A[letter]-=1
+                if A[letter]<0:
+                    can=False
+                    break
+            except:
+                can=False
+                break
+        return can
+                
+				
+				
+
+
+
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        unordered_map<char, int> wordFreq;
+        for(char kar:magazine)
+        {
+            if(wordFreq.count(kar)>0){
+                wordFreq[kar]++;
+            }
+            else{
+                wordFreq[kar]=1;
+            }
+        }
+        bool can=true;
+        for(char kar:ransomNote){
+            if(wordFreq.count(kar)==0){
+                can=false;
+                break;
+            }
+            else{
+                wordFreq[kar]--;
+                if(wordFreq[kar]<0){
+                    can=false;
+                    break;
+                }
+                    
+            }
+        }
+        return can;
+    }
+};

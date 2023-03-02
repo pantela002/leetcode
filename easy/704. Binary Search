@@ -1,0 +1,20 @@
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        l=0
+        d=len(nums)-1
+        while l<=d:
+            middle= l+(d-l)//2
+            print(middle)
+            if nums[middle]==target:
+                return middle
+            elif nums[middle]<target:
+                l=middle+1
+            else:
+                d=middle-1
+        return -1
+        

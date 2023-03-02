@@ -1,0 +1,23 @@
+class Solution(object):
+    def minSteps(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: int
+        """
+        s1=sorted(s)
+        s2=sorted(t)
+        uk=0
+        
+        i=0
+        j=0
+        while i<len(s1) and j<len(s2):
+            if s1[i]==s2[j]:
+                uk+=1
+                i+=1
+                j+=1
+            elif s1[i]>s2[j]:
+                j+=1
+            else:
+                i+=1
+        return len(s1)+len(s2)-2*uk

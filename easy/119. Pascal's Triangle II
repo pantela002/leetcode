@@ -1,0 +1,14 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        if rowIndex==0:
+            return [1]
+        if rowIndex==1:
+            return [1,1]
+        a=[1,1]
+        for i in range(2,rowIndex+1):
+            b=[1]
+            for j in range(0,i-1):
+                b.append(a[j]+a[j+1])
+            b.append(1)
+            a=b.copy()
+        return a

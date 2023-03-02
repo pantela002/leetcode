@@ -1,0 +1,18 @@
+class Solution:
+    def minOperations(self, grid: List[List[int]], x: int) -> int:
+        num=0
+        nums=[]
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                nums.append(grid[i][j])
+        nums.sort()
+        middle=nums[len(nums)//2]
+        for i in range(len(nums)):
+            if abs(middle-nums[i])%x!=0:
+                return -1
+            num+=abs(middle-nums[i])//x
+        return int(num)
+		
+		
+		
+moze mnoooooooogo bolje

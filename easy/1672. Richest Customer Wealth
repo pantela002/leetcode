@@ -1,0 +1,32 @@
+class Solution(object):
+    def maximumWealth(self, accounts):
+        """
+        :type accounts: List[List[int]]
+        :rtype: int
+        """
+        maxs=0
+        trenutni=0
+        for listt in accounts:
+            trenutni=0
+            for i in listt:
+                trenutni+=i
+            if trenutni>maxs:
+                maxs=trenutni
+        return maxs
+
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int maksi=0;
+        for(vector<int> v : accounts)
+        {
+            int trenutno=0;
+            for(int money : v)
+            {
+                trenutno+=money;
+            }
+            if(trenutno>maksi){maksi=trenutno;}
+        }
+        return maksi;
+    }
+};

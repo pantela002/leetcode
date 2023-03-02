@@ -1,0 +1,10 @@
+class Solution:
+    def numberOfBeams(self, bank: List[str]) -> int:
+        laser=0
+        devices=0
+        for i in range(len(bank)):
+            if bank[i].count('1')==0:
+                continue
+            laser+=devices*bank[i].count('1')
+            devices=bank[i].count('1')
+        return laser

@@ -1,0 +1,14 @@
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n==1:
+            return 1
+        if n==2:
+            return 2
+        a=[1,2]
+        for i in range (3,n+1):
+            a.append(a[i-2]+a[i-3])
+        return a[n-1]
